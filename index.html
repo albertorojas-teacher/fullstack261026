@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi página sencilla</title>
+  <style>
+    /* --- Variables de color --- */
+    :root {
+      --fondo: #f4f6fb;
+      --tarjeta: #ffffff;
+      --texto: #1f2937;
+      --suave: #6b7280;
+      --acento: #4f46e5;
+      --acento-hover: #4338ca;
+    }
+
+    /* --- Reset básico --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* --- Cabecera --- */
+    header {
+      background: var(--tarjeta);
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 1.5rem;
+    }
+
+    nav {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--acento);
+      text-decoration: none;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    nav a {
+      color: var(--suave);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--acento);
+    }
+
+    /* --- Contenido --- */
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+
+    .hero {
+      background: var(--tarjeta);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 25px rgba(31, 41, 55, 0.08);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      color: var(--suave);
+      max-width: 55ch;
+      margin: 0 auto 1.75rem;
+    }
+
+    .boton {
+      display: inline-block;
+      background: var(--acento);
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+    }
+
+    .boton:hover {
+      background: var(--acento-hover);
+    }
+
+    .boton:active {
+      transform: scale(0.98);
+    }
+
+    /* --- Tarjetas --- */
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .tarjeta {
+      background: var(--tarjeta);
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid #e5e7eb;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(31, 41, 55, 0.08);
+    }
+
+    .tarjeta h2 {
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .tarjeta p {
+      color: var(--suave);
+      font-size: 0.925rem;
+    }
+
+    /* --- Pie --- */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--suave);
+      font-size: 0.85rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 520px) {
+      .hero {
+        padding: 1.75rem 1.25rem;
+      }
+
+      nav {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a class="logo" href="#">MiSitio</a>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <h1>Hola, mundo 👋</h1>
+      <p>
+        Esta es una página HTML sencilla con CSS moderno: colores con variables,
+        diseño responsive y un poco de interactividad al pasar el ratón.
+      </p>
+      <a class="boton" href="#servicios">Ver servicios</a>
+    </section>
+
+    <section class="tarjetas" id="servicios">
+      <article class="tarjeta">
+        <h2>Diseño limpio</h2>
+        <p>Espaciado consistente y tipografía legible en cualquier pantalla.</p>
+      </article>
+      <article class="tarjeta">
+        <h2>Responsive</h2>
+        <p>Se adapta a móviles, tablets y escritorio sin código extra.</p>
+      </article>
+      <article class="tarjeta">
+        <h2>Fácil de editar</h2>
+        <p>Todo el CSS está en el mismo archivo, organizado por secciones.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <p>© 2026 MiSitio · Hecho con HTML y CSS</p>
+  </footer>
+</body>
+</html>
